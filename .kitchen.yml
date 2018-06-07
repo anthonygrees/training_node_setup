@@ -11,9 +11,9 @@ driver:
     Name: "Chef Training Node for <YOURNAME>, Rees"
     created-by: "test-kitchen"
     user: Administrator
-    X-Contact: <%= ENV['USER'] %>
-    X-Application: <%= ENV['X_APPLICATION'] %>
-    X-Dept: <%= ENV['X_DEPT'] %>
+    X-Contact: "Anthony Rees"
+    X-Application: "Training"
+    X-Dept: "Solutions Architects"
     X-Customer: "Test-Kitchen"
     X-Project: "Test-Kitchen"
     X-TTL: 4
@@ -26,19 +26,7 @@ verifier:
   format: documentation
 
 platforms:
-  - name: node-1
-    transport:
-      username: centos
-      ssh_key:  ~\.ssh\id_rsa
-    driver_config:
-      user_data: C:/Users/chef/user_data
-  - name: node-2
-    transport:
-      username: centos
-      ssh_key:  ~\.ssh\id_rsa
-    driver_config:
-      user_data: C:/Users/chef/user_data
-  - name: node-3
+  - name: centos-6
     transport:
       username: centos
       ssh_key:  ~\.ssh\id_rsa
@@ -46,9 +34,23 @@ platforms:
       user_data: C:/Users/chef/user_data
 
 suites:
-  - name: default
+  - name: node-1
     run_list:
-      - recipe[webserver::default]
+      - recipe[training_node_setup::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+  - name: node-2
+    run_list:
+      - recipe[training_node_setup::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
+  - name: node-3
+    run_list:
+      - recipe[training_node_setup::default]
     verifier:
       inspec_tests:
         - test/smoke/default

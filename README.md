@@ -20,9 +20,18 @@ USER - 'centos'
 PWD - Is the password (Use the '-i' for ~\.ssh\id_rsa )
 node1 - The name.... You can use any name....
 
-This is an example bootstrap command on AWS EC2 training lab BJC:
+## AWS EC2 Specific Examples
+This is an example BOOTSTRAP command on AWS EC2 training lab BJC:
 ```
-$ knife bootstrap -i workshop.pem centos@ec2-XX-XXX-XXX-XXX.us-west-2.compute.amazonaws.com -N Your_Node_Name --sudo -run-list 'recipe[Your_Cookbook_Name]'
+$ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N Node1 --sudo
+```
+This is an example ADD RECIPE command on AWS EC2 training lab BJC:
+```
+$ knife node run_list add Node1 "recipe[your_cookbook]"
+```
+This is an example bootstrap and add recipe command on AWS EC2 training lab BJC:
+```
+$ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N Node1 --sudo --run-list 'recipe[your_cookbook]'
 ```
 
 
