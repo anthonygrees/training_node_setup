@@ -16,7 +16,7 @@ driver:
     X-Dept: "Solutions Architects"
     X-Customer: "Test-Kitchen"
     X-Project: "Test-Kitchen"
-    X-TTL: 4
+    X-TTL: 8
 
 provisioner:
   name: chef_zero
