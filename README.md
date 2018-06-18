@@ -41,8 +41,5 @@ $ knife ssh 'name:node1' 'sudo chef-client' -x centos -i ~\.ssh\id_rsa
 ```
 Converge all your nodes
 ```
-knife ssh "*:*" "sudo chef-client" -x centos -i ~\.ssh\id_rsa
+$ knife ssh "*:*" "sudo chef-client" -x centos -i ~\.ssh\id_rsa
 ```
-
-
-
