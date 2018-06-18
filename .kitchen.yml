@@ -55,3 +55,10 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+  - name: node-4
+    run_list:
+      - recipe[training_node_setup::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
