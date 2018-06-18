@@ -35,8 +35,14 @@ $ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.
 ```
 
 ## Converge Your Recipe
+Converge node 1 and run the Chef-Client
 ```
 $ knife ssh 'name:node1' 'sudo chef-client' -x centos -i ~\.ssh\id_rsa
 ```
+Converge all your nodes
+```
+knife ssh "*:*" "sudo chef-client" -x centos -i ~\.ssh\id_rsa
+```
+
 
 
