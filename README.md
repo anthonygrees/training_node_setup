@@ -43,3 +43,30 @@ Converge all your nodes
 ```
 $ knife ssh "*:*" "sudo chef-client" -x centos -i ~\.ssh\id_rsa
 ```
+
+## Should the AWS Reaper take down your nodes
+Remove the missing nodes from Chef Server
+```
+##Delete all nodes
+$ knife node delete node1
+$ knife node delete node2
+$ knife node delete node3
+$ knife node delete node4
+```
+
+Restore node1
+```
+$ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N node1 --sudo -r 'role[web]' -E production
+```
+Restore node2
+```
+$ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N node2 --sudo -r 'role[web]' -E production
+```
+Restore node3
+```
+$ knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N node3 --sudo -r 'role[loadbalancer]' -E production
+```
+Restore node4
+```
+knife bootstrap -i ~\.ssh\id_rsa centos@ec2-xxx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com -N node4 --sudo -r 'role[web]' -E acceptance
+```
