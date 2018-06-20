@@ -12,10 +12,11 @@ driver:
     created-by: "test-kitchen"
     user: Administrator
     X-Contact: "Anthony Rees"
-    X-Application: "APAC"
-    X-Dept: "Sales"
+    X-Application: "apac"
+    X-Dept: "sales"
     X-Customer: "Test-Kitchen"
-    X-Project: "Test-Kitchen"
+    X-Project: "BJC-Demo"
+    X-Termination-Date: "2018-07-20T12:04:30Z"
     X-TTL: 48
 
 provisioner:
